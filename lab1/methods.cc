@@ -11,13 +11,13 @@ namespace SolutionMethods
         double end = s.second;
         double beginValue = p->GetValue(begin);
         double endValue = p->GetValue(end);
-        while (end - begin >= 2 * eps)
+        while (std::abs(end - begin) >= 2 * eps)
         {
             ++iterations;
             double middle = end + begin;
             middle /= 2;
             double midValue = p->GetValue(middle);
-            std::cout << "iteration " << iterations << ": point " << middle << " with value " << midValue << std::endl;
+            std::cout << "iteration " << iterations << ": point " << middle << " with value " << midValue << "\n\tb = " << end << " a = " << begin << std::endl;
             if (midValue * beginValue < 0)
             {
                 end = middle;
@@ -35,11 +35,45 @@ namespace SolutionMethods
 
     double Chords::operator()(Polynom *p, Section s, double eps)
     {
-        return 0;
+        std::cout << "Chords method" << std::endl;
+        uint64_t iterations = 0;
+        double begin, end;
+        std::tie(begin, end) = s;
+        double beginValue = p->GetValue(begin), endValue = p->GetValue(end);
+        double center;
+        do
+        {
+            center = (begin * endValue - end * beginValue) / (endValue - beginValue);
+            double centValue = p->GetValue(center);
+            std::cout << "iteration " << ++iterations << ": point " << center << " with value " << centValue << "\n\tb = " << end << " a = " << begin << std::endl;
+            if (beginValue * centValue < 0)
+            {
+                endValue = centValue;
+                end = center;
+            }
+            else
+            {
+                beginValue = centValue;
+                begin = center;
+            }
+        } while (std::abs(p->GetValue(center)) >= eps);
+
+        std::cout << "Chords method solved in " << iterations << " iterations" << std::endl;
+        return center;
     }
 
     double Newton::operator()(Polynom *p, Section s, double eps)
     {
-        return 0;
+        uint64_t iterations = 0;
+        std::cout << "Newtons method" << std::endl;
+        double point = s.second;
+        std::cout << "Starting value"<< ". Current point: " << point << " with value " << p->GetValue(point) << std::endl;
+        while (std::abs(p->GetValue(point)) >= eps)
+        {
+            point -= p->GetValue(point) / p->GetDerivativeValue(point);
+            std::cout << "Iteration " << ++iterations << ". Current point: " << point << " with value " << p->GetValue(point) << std::endl;
+        }
+        std::cout << "Newton method finished in " << iterations << " iterations" << std::endl;
+        return point;
     }
 } // namespace SolutionMethods

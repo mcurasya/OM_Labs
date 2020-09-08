@@ -26,3 +26,4 @@ public:
 };
 
 std::ostream &operator<<(std::ostream &os, const Polynom &p);
+std::ostream &operator<<(std::ostream &os, const Section &p);

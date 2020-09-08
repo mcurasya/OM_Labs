@@ -42,9 +42,15 @@ Solutions Polynom::Solve(Section s, double eps)
     SolutionMethods::Bisections b;
     SolutionMethods::Chords c;
     SolutionMethods::Newton n;
-    return std::make_tuple(_Solve(b, s, eps),
-                           _Solve(n, s, eps),
-                           _Solve(c, s, eps));
+    std::cout << std::endl;
+    auto result1 = _Solve(b, s, eps);
+    std::cout << std::endl;
+    auto result2 = _Solve(c, s, eps);
+    std::cout << std::endl;
+    auto result3 = _Solve(n, s, eps);
+    std::cout << std::endl;
+    std::cout << std::endl;
+    return std::make_tuple(result1, result2, result3);
 }
 
 double Polynom::GetValue(double x)
@@ -57,7 +63,7 @@ double Polynom::GetValue(double x)
     return result;
 }
 
-double Polynom::GetDerivativeValue(double x) 
+double Polynom::GetDerivativeValue(double x)
 {
     double result = 0;
     for (int i = 0; i < derivativeCoeffs.size(); ++i)
@@ -70,9 +76,13 @@ double Polynom::GetDerivativeValue(double x)
 std::vector<Solutions> Polynom::SolveAll(std::vector<Section> sections, double eps)
 {
     std::vector<Solutions> sols;
+    int i = 1;
     for (auto section : sections)
     {
+        std::cout << "root " << i << std::endl;
+        std::cout << "Section: " << section;
         sols.push_back(Solve(section, eps));
+        ++i;
     }
     return sols;
 }
@@ -104,6 +114,12 @@ std::ostream &operator<<(std::ostream &os, const Polynom &p)
         }
     }
     os << " = 0";
+    return os;
+}
+
+std::ostream& operator<<(std::ostream &os, const Section &p) 
+{
+    os << "[" << p.first << ", " << p.second << "]";
     return os;
 }
 
