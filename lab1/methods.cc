@@ -1,6 +1,7 @@
 #include "methods.hpp"
 #include <iostream>
 #include <cstdint>
+#include <cmath>
 namespace SolutionMethods
 {
     double Bisections::operator()(Polynom *p, Section s, double eps)
