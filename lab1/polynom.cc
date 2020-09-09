@@ -26,6 +26,9 @@ Polynom::Polynom(const std::vector<double> &v)
     {
         derivativeCoeffs.push_back(i * coefficients[i]);
     }
+    for(int i = 1; i < derivativeCoeffs.size(); ++i){
+        secondDerivativeCoeffs.push_back(i * derivativeCoeffs[i]);
+    }
 }
 
 Polynom::~Polynom()
@@ -69,6 +72,16 @@ double Polynom::GetDerivativeValue(double x)
     for (int i = 0; i < derivativeCoeffs.size(); ++i)
     {
         result += std::pow(x, i) * derivativeCoeffs[i];
+    }
+    return result;
+}
+
+double Polynom::GetSecondDerivativeValue(double x)
+{
+    double result = 0;
+    for (int i = 0; i < secondDerivativeCoeffs.size(); ++i)
+    {
+        result += std::pow(x, i) * secondDerivativeCoeffs[i];
     }
     return result;
 }

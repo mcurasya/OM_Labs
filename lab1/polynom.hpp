@@ -13,6 +13,8 @@ class Polynom
 private:
     std::vector<double> coefficients; //starting from x^0 to x^(size - 1)
     std::vector<double> derivativeCoeffs;
+    std::vector<double> secondDerivativeCoeffs;
+
     template<class Functor>
     double _Solve(Functor solutionMethod, Section s, double eps);
 public:
@@ -22,6 +24,7 @@ public:
     Solutions Solve(Section s, double eps);
     double GetValue(double x);
     double GetDerivativeValue(double x);
+    double GetSecondDerivativeValue(double x);
     std::vector<Solutions> SolveAll(std::vector<Section> sections, double eps);
 };
 
