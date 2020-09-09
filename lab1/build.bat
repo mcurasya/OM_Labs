@@ -1,3 +1,5 @@
-cl main.cc polynom.cc
+cl *.cc
 
 del *.obj
+
+main.exe > logs.txt

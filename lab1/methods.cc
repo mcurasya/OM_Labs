@@ -67,8 +67,17 @@ namespace SolutionMethods
     {
         uint64_t iterations = 0;
         std::cout << "Newtons method" << std::endl;
-        double point = s.second;
-        std::cout << "Starting value"<< ". Current point: " << point << " with value " << p->GetValue(point) << std::endl;
+        double point;
+        if (p->GetValue(s.first) * p->GetSecondDerivativeValue(s.first) > 0)
+        {
+            point = s.first;
+        }
+        else
+        {
+            point = s.second;
+        }
+        std::cout << "Starting value"
+                  << ". Current point: " << point << " with value " << p->GetValue(point) << std::endl;
         while (std::abs(p->GetValue(point)) >= eps)
         {
             point -= p->GetValue(point) / p->GetDerivativeValue(point);
