@@ -2,4 +2,4 @@ cl *.cc
 
 del *.obj
 
-main.exe > logs.txt
+main.exe > Result.txt
