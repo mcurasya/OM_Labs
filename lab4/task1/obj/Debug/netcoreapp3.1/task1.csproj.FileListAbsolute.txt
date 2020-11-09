@@ -1,0 +1,13 @@
+C:\Users\mcurasya\projects\OM_labs\lab4\task1\bin\Debug\netcoreapp3.1\task1.exe
+C:\Users\mcurasya\projects\OM_labs\lab4\task1\bin\Debug\netcoreapp3.1\task1.deps.json
+C:\Users\mcurasya\projects\OM_labs\lab4\task1\bin\Debug\netcoreapp3.1\task1.runtimeconfig.json
+C:\Users\mcurasya\projects\OM_labs\lab4\task1\bin\Debug\netcoreapp3.1\task1.runtimeconfig.dev.json
+C:\Users\mcurasya\projects\OM_labs\lab4\task1\bin\Debug\netcoreapp3.1\task1.dll
+C:\Users\mcurasya\projects\OM_labs\lab4\task1\bin\Debug\netcoreapp3.1\task1.pdb
+C:\Users\mcurasya\projects\OM_labs\lab4\task1\obj\Debug\netcoreapp3.1\task1.csprojAssemblyReference.cache
+C:\Users\mcurasya\projects\OM_labs\lab4\task1\obj\Debug\netcoreapp3.1\task1.AssemblyInfoInputs.cache
+C:\Users\mcurasya\projects\OM_labs\lab4\task1\obj\Debug\netcoreapp3.1\task1.AssemblyInfo.cs
+C:\Users\mcurasya\projects\OM_labs\lab4\task1\obj\Debug\netcoreapp3.1\task1.csproj.CoreCompileInputs.cache
+C:\Users\mcurasya\projects\OM_labs\lab4\task1\obj\Debug\netcoreapp3.1\task1.dll
+C:\Users\mcurasya\projects\OM_labs\lab4\task1\obj\Debug\netcoreapp3.1\task1.pdb
+C:\Users\mcurasya\projects\OM_labs\lab4\task1\obj\Debug\netcoreapp3.1\task1.genruntimeconfig.cache
