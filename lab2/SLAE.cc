@@ -55,6 +55,14 @@ Solution Gaussian(table t, std::vector<double> answers) {
   }
 
   for (int i = 0; i < t.size(); i++) {
+    for (int j = 0; j < t.size(); j++) {
+      std::cout << std::left << std::setw(12) << t[i][j] << " ";
+    }
+    std::cout << "| " << answers[i] << std::endl;
+  }
+  std::cout << std::endl;
+
+  for (int i = 0; i < t.size(); i++) {
     for (int j = 0; j < t.size(); ++j) {
       if (j == i) {
         continue;
@@ -79,15 +87,10 @@ Solution Gaussian(table t, std::vector<double> answers) {
     inv[i] = inv[i] / t[i][i];
   }
   std::cout << "inverse matrix: " << std::endl;
-  for (int i = 0; i < t.size(); i++) {
-    for (int j = 0; j < t.size(); j++) {
-      std::cout << std::setw(12) << inv[i][j] << " ";
-    }
-    std::cout << std::endl;
-  }
-  std::cout << "determinant = " << det << std::endl;
+  std::cout << inv << std::endl;
+  std::cout << "determinant = " << det << std::endl << std::endl;
   std::vector<double> solutions(t.size());
-  std::cout << "solution of system: " << std::endl;
+  std::cout << "solution of system: " << std::endl << std::endl;
   for (size_t i = 0; i < t.size(); i++) {
     solutions[i] = answers[i] / t[i][i];
     std::cout << "\t" << solutions[i] << std::endl;
@@ -117,6 +120,16 @@ std::vector<double> operator/(const std::vector<double>& v, double num) {
     result[i] = v[i] / num;
   }
   return result;
+}
+
+std::ostream& operator<<(std::ostream& os, const table& t) {
+  for (auto row : t) {
+    for (auto elem : row) {
+      std::cout << std::setw(15) << std::left << elem;
+    }
+    std::cout << std::endl;
+  }
+  return os;
 }
 
 table operator*(const table& v1, const table& v2) {
