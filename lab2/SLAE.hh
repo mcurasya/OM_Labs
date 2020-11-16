@@ -8,10 +8,10 @@ using Solution = std::tuple<std::vector<double>, table, double>;
 class SLAE {
  private:
   size_t size;
-  std::vector<double> answers;
 
  public:
   table matr;
+  std::vector<double> answers;
   explicit SLAE(const table& matrix, const std::vector<double>& answers);
   Solution Solve() const;
   SLAE(std::ifstream& is);
@@ -24,3 +24,4 @@ std::vector<double> operator-(const std::vector<double>& v1, const std::vector<d
 std::vector<double> operator/(const std::vector<double>& v, double num);
 std::vector<double> operator*(const std::vector<double>& v, double num);
 table operator*(const table& v1, const table& v2);
+std::ostream& operator<<(std::ostream& os, const table& t); 
