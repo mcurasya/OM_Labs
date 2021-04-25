@@ -1,3 +1,4 @@
+from numpy import matrix
 import math
 size = int(input("enter size of a vector >>> "))
 
@@ -36,7 +37,7 @@ def multiply(matr, vec):
 
 
 def multiply_matrix(matr1, matr2):
-    res = [[0] * 5 for i in range(size)]
+    res = [[0] * size for i in range(size)]
     for i in range(size):
         for j in range(size):
             for k in range(size):
@@ -68,23 +69,25 @@ ans = []
 for _ in range(size):
     ans.append(float(f.readline()))
 
-ans = multiply(transpose(matr), ans)
-matr = multiply_matrix(transpose(matr), matr)
 
 matr2 = []
 for i in range(size):
     matr2.append(matr[i][::])
 ans2 = ans[::]
 prepare_for_iterations(matr2, ans2)
+
+print(matrix(matr2))
+print(matrix(ans2).T)
+
 solution = [0] * size
 nev_norm = 100000000 #magic don`t touch
 
 iterations = 0
-while nev_norm > 1e-5:
+while nev_norm > 1e-6:
     iterations += 1
     print(f"iteration: {iterations}")
     solution = add(multiply(matr2, solution), ans2)
-    print(solution)
+    print(matrix(solution).T)
     print("Residual")
     nev = subtract(ans, multiply(matr, solution))
     print(nev)

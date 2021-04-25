@@ -48,6 +48,15 @@ def rotate(A, i, j):
     new_A = multiply(new_A, Uinv)
     return new_A, U
 
+#????
+def getSum(A):
+    sum = 0
+    for i in range(len(A)):
+        for j in range(len(A)):
+            if i != j:
+                sum += A[i][j] ** 2
+    return sum
+
 def Jacobi(A):
     rotators = []
     iterations = 1

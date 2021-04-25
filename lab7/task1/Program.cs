@@ -12,7 +12,7 @@ namespace task1
         static double RectIntegration()
         {
             double sum = 0;
-            double h = 0.013068536780368406;
+            double h = 0.01;
             for (double i = 0; i <= 2 * Math.PI; i += h)
             {
                 sum += func(i) * h;
@@ -22,7 +22,7 @@ namespace task1
         }
 
         static double TrapIntegration() {
-            double h = 0.06514700159;
+            double h = 0.05;
             double sum = func(0) + func(2 * Math.PI);
             for (double i = h; i < 2 * Math.PI; i += h)
             {
@@ -32,12 +32,19 @@ namespace task1
         }
 
         static double SimpsonIntegration() {
-            
+            double h = 0.1;
+            double sum = func(0) + func(2 * Math.PI);
+            for (double i = h; i < 2 * Math.PI; i += 2 * h)
+            {
+                sum += 4*func(i) + 2 *func(i+h);
+            }
+            return sum * h / 3;
         }
         static void Main(string[] args)
         {
             Console.WriteLine($"rectangle integration value = {RectIntegration()}");
             Console.WriteLine($"trapezoid integration value = {TrapIntegration()}");
+            Console.WriteLine($"Simpson integration value   = {SimpsonIntegration()}");
         }
     }
 }
