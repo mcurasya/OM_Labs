@@ -33,7 +33,6 @@ namespace task2
                     sum += func(xi(2 * i, h), yi(2 * j, k)) + func(xi(2 * i + 2, h), yi(2 * j, k)) + func(xi(2 * i, h), yi(2 * j + 2, k)) + func(xi(2 * i + 2, h), yi(2 * j + 2, k));
                     sum += 4 * (func(xi(2 * i + 1, h), yi(2 * j, k)) + func(xi(2 * i + 2, h), yi(2 * j + 1, k)) + func(xi(2 * i + 1, h), yi(2 * j + 2, k)) + func(xi(2 * i, h), yi(2 * j + 1, k)));
                     sum += 16 * func(xi(2 * i + 1, h), yi(2 * j + 1, k));
-                    // Console.WriteLine($"xi = {xi(2 * i, h)}, yi = {yi(2 * j, k)} func = {func(xi(2 * i, h), yi(2 * j, k))}");
                 }
             }
             return sum * h * k / 9;
